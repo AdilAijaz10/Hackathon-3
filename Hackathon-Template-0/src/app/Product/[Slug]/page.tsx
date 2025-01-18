@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import QuantitySelector from "../../Component/QuantitySelecter";
 import RelatedProducts from '@/app/Component/RelatedProducts';
+import Link from 'next/link';
 
 
 // interface Params {
@@ -70,7 +71,7 @@ export default async function product({ params }: any) {
                             className="rounded-lg object-cover w-full"
                         />
                     </div>
-                    
+
                 </div>
 
                 {/* Product Details */}
@@ -114,11 +115,12 @@ export default async function product({ params }: any) {
                     {/* Quantity and Add to Cart */}
                     <div className="flex items-center mt-6 space-x-4">
                         <QuantitySelector stockLevel={product.stockLevel} />
-                        <button
+                        <Link
                             className="px-8 py-4 bg-transparent text-black font-medium border border-black rounded-lg hover:bg-black hover:text-white"
+                            href="/Cart"
                         >
                             Add To Cart
-                        </button>
+                        </Link>
                     </div>
                     <div className="mt-4 flex border-b border-gray-300 pb-2"></div>
 
