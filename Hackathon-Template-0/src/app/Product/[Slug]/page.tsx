@@ -26,7 +26,7 @@ export default async function product({ params }: { params: Params }) {
 
     const data: IProduct[] = await client.fetch('*[_type == "product"]');
     const index = params.Slug; // Change this to any index you want (e.g., 0, 1, 2, etc.)
-
+    console.log(index);
     // Ensure the index exists in the data array
     const product = data[index];
 
@@ -69,22 +69,7 @@ export default async function product({ params }: { params: Params }) {
                             className="rounded-lg object-cover w-full"
                         />
                     </div>
-                    {/* <div className="grid grid-cols-4 gap-4 mt-4 w-full">
-                        {[1, 2, 3, 4].map((item) => (
-                            <div
-                                key={item}
-                                className="bg-yellow-50 p-2 justify-center rounded-lg cursor-pointer border border-gray-200 hover:border-gray-400"
-                            >
-                                <Image
-                                    src={`/images/thumb${item}.png`}
-                                    alt={`Thumbnail ${item}`}
-                                    width={80}
-                                    height={80}
-                                    className="rounded-md object-cover"
-                                />
-                            </div>
-                        ))}
-                    </div> */}
+                    
                 </div>
 
                 {/* Product Details */}
@@ -125,9 +110,6 @@ export default async function product({ params }: { params: Params }) {
                         {product.description}
                     </p>
 
-
-
-
                     {/* Quantity and Add to Cart */}
                     <div className="flex items-center mt-6 space-x-4">
                         <QuantitySelector stockLevel={product.stockLevel} />
@@ -137,7 +119,6 @@ export default async function product({ params }: { params: Params }) {
                             Add To Cart
                         </button>
                     </div>
-
                     <div className="mt-4 flex border-b border-gray-300 pb-2"></div>
 
                     {/* Product Metadata */}
@@ -152,23 +133,19 @@ export default async function product({ params }: { params: Params }) {
                             <span className="font-medium pr-10 pl-2"> :</span>
                             <span className="text-gray-500"> {product.category}</span>
                         </p>
-
                     </div>
                 </div>
             </div>
             <div className="mt-4 flex border-b border-gray-300 pb-2"></div>
             <div className="bg-white min-h-screen py-6 px-8">
-
                 <div className="bg-white px-6">
-                    {/* Section Heading */}
 
+                    {/* Section Heading */}
                     <RelatedProducts category={product.category} />
                     <div className="text-center lg:tex-center lg:w-full space-y-6 px-32 pb-28">
                         <a
                             href="/Shop"
-                            className="text-lg text-black justify-center relative hover:text-white"
-
-                        >
+                            className="text-lg text-black justify-center relative hover:text-white">
                             View More
                             <span className="absolute left-0 bottom-0 w-full h-0.5 bg-black hover:bg-white transform translate-y-2"></span>
                         </a>

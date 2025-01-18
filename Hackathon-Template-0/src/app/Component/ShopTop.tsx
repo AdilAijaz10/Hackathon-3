@@ -23,6 +23,7 @@ const ShopTop = () => {
   const [showCount, setShowCount] = useState(productsPerPage);
   const [sortOption, setSortOption] = useState("default");
   const [categories, setCategories] = useState<string[]>([]);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
   useEffect(() => {
@@ -44,7 +45,7 @@ const ShopTop = () => {
   const indexOfLastProduct = currentPage * showCount;
   const indexOfFirstProduct = indexOfLastProduct - showCount;
   const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
-
+  console.log(currentProducts); 
   // Function to handle page change
   const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);
@@ -97,6 +98,7 @@ const ShopTop = () => {
   const handleCategoryChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedCat = event.target.value;
     setSelectedCategory(selectedCat);
+    
     if (selectedCat === "all") {
       setFilteredProducts(products);
     } else {
@@ -157,8 +159,7 @@ const ShopTop = () => {
         {currentProducts.map((product) => (
           <div
             key={product.id || `${product.name}`} // Prioritize _id, fallback to name
-            className="flex flex-col items-center justify-end p-4"
-          >
+            className="flex flex-col items-center justify-end p-4">
             <Link href={`/Product/${product.id}`}>
               <img
                 src={urlFor(product.imagePath).url()}
