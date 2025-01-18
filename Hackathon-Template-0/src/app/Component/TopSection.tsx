@@ -16,7 +16,7 @@ export default async function TopSection() {
   // console.log(JSON.stringify(data, null, 2));
 
   return (
-    <div>
+    <div className="py-12">
       <h2 className="text-2xl font-bold mb-6 text-center">Top Picks For You</h2>
       <p className="text-gray-500 text-center mb-10">
         Find a bright idea to suit your taste with our great selection of suspension, floor and table lights.
