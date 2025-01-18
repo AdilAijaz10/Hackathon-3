@@ -8,9 +8,9 @@ import QuantitySelector from "../../Component/QuantitySelecter";
 import RelatedProducts from '@/app/Component/RelatedProducts';
 
 
-interface Params {
-    Slug: number;
-}
+// interface Params {
+//     Slug: number;
+// }
 interface IProduct {
     id: string;
     name: string;
@@ -22,7 +22,8 @@ interface IProduct {
     stockLevel: number;
     category: string;
 }
-export default async function product({ params }: { params: Params }) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export default async function product({ params }: any) {
 
     const data: IProduct[] = await client.fetch('*[_type == "product"]');
     const index = params.Slug; // Change this to any index you want (e.g., 0, 1, 2, etc.)
