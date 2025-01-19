@@ -28,7 +28,6 @@ export default async function product({ params }: any) {
 
     const data: IProduct[] = await client.fetch('*[_type == "product"]');
     const index = params.Slug; // Change this to any index you want (e.g., 0, 1, 2, etc.)
-    console.log(index);
     // Ensure the index exists in the data array
     const product = data[index];
 
@@ -42,8 +41,9 @@ export default async function product({ params }: any) {
     // };
 
     return (
+        
         <div className="bg-white min-h-screen">
-
+            <h1>{params.Slug}</h1>
             <div className="py-4 px-32">
                 <p className="text-sm text-gray-500 mt-2 flex items-left justify-left space-x-2">
                     <span>Home</span>
