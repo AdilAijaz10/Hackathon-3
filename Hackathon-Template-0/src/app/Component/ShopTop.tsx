@@ -109,50 +109,53 @@ const ShopTop = () => {
 
   return (
     <>
-      <div className="overflow-hidden w-full bg-[#FAF4F4] py-4 px-4 sm:px-8">
-        <div className="flex flex-col sm:flex-row justify-between items-center">
-          <div className="flex items-center mb-4 sm:mb-0">
-            <LuSettings2 className="h-5 w-5 text-black-500 mr-2" />
-            <p className="font-semibold text-black-700">Filter:</p>
-            <input
-              type="text"
-              className="border border-black-300 px-2 py-1 ml-2 w-full sm:w-60 md:w-80 lg:w-96"
-              placeholder="Search products..."
-              onChange={handleFilterChange}
-            />
-          </div>
-          <div className="flex items-center">
-            <p className="font-semibold text-black-700 mr-2">Show:</p>
-            <input
-              type="text"
-              className="border border-black-300 px-2 py-1 ml-2 w-10 text-center"
-              defaultValue={showCount.toString()}
-              onChange={handleShowChange}
-            />
-            <p className="ml-2 font-semibold text-black-700 mr-2">Sort by:</p>
-            <select className="border border-gray-300 px-2 py-1 ml-2" onChange={handleSortChange}>
-              <option value="default">Default</option>
-              <option value="price-asc">Price: Low to High</option>
-              <option value="price-desc">Price: High to Low</option>
-              <option value="name-asc">Name: A-Z</option>
-              <option value="name-desc">Name: Z-A</option>
-              {/* Add more sort options as needed */}
-            </select>
-            <p className="ml-2 font-semibold text-black-700 mr-2">Category:</p>
-            <select
-              className="border border-gray-300 px-2 py-1 ml-2"
-              onChange={handleCategoryChange}
-            >
-              <option value="all">All</option>
-              {categories.map((category) => (
-                <option key={category} value={category}>
-                  {category}
-                </option>
-              ))}
-            </select>
-          </div>
-        </div>
-      </div>
+      <div className="overflow-hidden w-full bg-[#FAF4F4] py-4 px-4 sm:px-8 flex flex-wrap justify-between items-center">
+  <div className="flex flex-col sm:flex-row mb-4 sm:mb-0">
+    <div className="flex items-center mr-4 sm:mr-0">
+      <LuSettings2 className="h-5 w-5 text-black-500 mr-2" />
+      <p className="font-semibold text-black-700">Filter:</p>
+    </div>
+    <input
+      type="text"
+      className="border border-black-300 px-2 py-1 ml-2 w-full sm:w-60 md:w-80 lg:w-96"
+      placeholder="Search products..."
+      onChange={handleFilterChange}
+    />
+  </div>
+  <div className="flex flex-wrap justify-between items-center">
+    <div className="flex items-center mr-4 sm:mr-0">
+      <p className="font-semibold text-black-700 mr-2">Show:</p>
+      <input
+        type="text"
+        className="border border-black-300 px-2 py-1 ml-2 w-10 text-center"
+        defaultValue={showCount.toString()}
+        onChange={handleShowChange}
+      />
+    </div>
+    <div className="flex items-center mr-4 sm:mr-0">
+      <p className="font-semibold text-black-700 mr-2">Sort by:</p>
+      <select className="border border-gray-300 px-2 py-1 ml-2" onChange={handleSortChange}>
+        <option value="default">Default</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+        <option value="name-asc">Name: A-Z</option>
+        <option value="name-desc">Name: Z-A</option>
+        {/* Add more sort options as needed */}
+      </select>
+    </div>
+    <div className="flex items-center">
+      <p className="font-semibold text-black-700 mr-2">Category:</p>
+      <select className="border border-gray-300 px-2 py-1 ml-2" onChange={handleCategoryChange}>
+        <option value="all">All</option>
+        {categories.map((category) => (
+          <option key={category} value={category}>
+            {category}
+          </option>
+        ))}
+      </select>
+    </div>
+  </div>
+</div>
 
       {/* Product Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:my-[40px] lg:grid-cols-4 gap-6 px-16 pb-[80px]">
