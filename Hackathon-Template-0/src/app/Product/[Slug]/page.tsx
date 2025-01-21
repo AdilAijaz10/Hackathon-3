@@ -25,13 +25,13 @@ interface IProduct {
 }
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default async function product({ params }: any) {
-
-    const data: IProduct[] = await client.fetch('*[_type == "product"]');
     const index = params.Slug; // Change this to any index you want (e.g., 0, 1, 2, etc.)
+    const data: IProduct[] = await client.fetch('*[_type == "product"][id == $index]', { index });
+    
     // Ensure the index exists in the data array
-    const product = data[index];
+    //const product = data[index];
 
-    if (!product) {
+    if (!data) {
         return <div>Product not found at index {index}</div>;
     }
 
@@ -64,7 +64,7 @@ export default async function product({ params }: any) {
                 <div className="flex flex-col items-center">
                     <div className="bg-yellow-50 p-4 rounded-lg w-full">
                         <img
-                            src={urlFor(product.imagePath).url()}
+                            src={urlFor(index.imagePath).url()}
                             alt={product.name}
                             width={500}
                             height={500}
@@ -76,9 +76,9 @@ export default async function product({ params }: any) {
 
                 {/* Product Details */}
                 <div className="">
-                    <h1 className="text-3xl font-bold text-gray-900">{product.name}</h1>
+                    <h1 className="text-3xl font-bold text-gray-900">{index.name}</h1>
                     <p className="text-2xl font-semibold text-gray-400 mt-2">
-                        Rs. {product.price}
+                        Rs. {index.price}
                     </p>
 
                     <div className="flex items-center mt-4 space-x-1">
