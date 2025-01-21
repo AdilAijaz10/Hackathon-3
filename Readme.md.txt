@@ -7,7 +7,7 @@ This marketplace provides dynamic product listings, category filters, detailed p
 Development Milestones
 Daily Progress
 Day 1: Planning and Data Schema Design
-Choose marketplace type: General E-Commerce, Q-Commerce, or Rental E-Commerce.
+Choose marketplace type: Rental E-Commerce with a complementary purchase option. 
 Defined business goals.
 Designed data schemas for products, orders, and customers.
 
