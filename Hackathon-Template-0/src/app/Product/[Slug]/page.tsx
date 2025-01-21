@@ -26,7 +26,7 @@ interface IProduct {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default async function product({ params }: any) {
     const index = params.Slug; // Change this to any index you want (e.g., 0, 1, 2, etc.)
-    const data: IProduct[] = await client.fetch('*[_type == "product"][id == $index]', { index });
+    const data: IProduct[] = await client.fetch('*[_type == "product"]');
     
     // Ensure the index exists in the data array
     const product = data[index];
@@ -64,7 +64,7 @@ export default async function product({ params }: any) {
                 <div className="flex flex-col items-center">
                     <div className="bg-yellow-50 p-4 rounded-lg w-full">
                         <img
-                            src={urlFor(index.imagePath).url()}
+                            src={urlFor(product.imagePath).url()}
                             alt={product.name}
                             width={500}
                             height={500}
